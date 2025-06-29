@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "dev": "nodemon app.js",
     "pm2": "pm2 start app.js --name develop-api --watch --ignore-watch=\"node_modules\"",
     "pm2:stop": "pm2 stop develop-api",
