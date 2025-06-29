@@ -1,0 +1,25 @@
+{
+  "name": "develop-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js",
+    "pm2": "pm2 start app.js --name develop-api --watch --ignore-watch=\"node_modules\"",
+    "pm2:stop": "pm2 stop develop-api",
+    "pm2:restart": "pm2 restart develop-api",
+    "pm2:logs": "pm2 logs develop-api",
+    "pm2:delete": "pm2 delete develop-api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "pm2": "^6.0.8"
+  }
+}
