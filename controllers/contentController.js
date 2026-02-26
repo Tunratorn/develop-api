@@ -46,6 +46,17 @@ exports.debugSuperbase = async (req, res) => {
   res.json({ data, error });
 };
 
+exports.get_registrations_travel = async (req, res) => {
+  const { data, error } = await supabase
+    .from('registrations_travel')
+    .select('*');
+
+  console.log("DATA:", data);
+  console.log("ERROR:", error);
+
+  res.json({ data, error });
+};
+
 exports.add_registrations_travel = async (req, res) => {
   const { data, error } = await supabase
     .from('registrations_travel')

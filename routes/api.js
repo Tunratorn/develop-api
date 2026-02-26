@@ -9,6 +9,7 @@ router.post('/send-email', sendmailController.sendmail);
 router.get('/get-register-travel', contentController.getRegister_travel);
 
 router.get('/debug-supabase', contentController.debugSuperbase);
+router.get('/get-registrations-travel', contentController.get_registrations_travel);
 router.post('/add-registrations-travel', contentController.add_registrations_travel);
 
 module.exports = router;
