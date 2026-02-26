@@ -1,9 +1,11 @@
 // app.js
-require('dotenv').config(); // โหลดไฟล์ .env
+require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const userRoutes = require('./routes/api');
 
+app.use(cors());
 app.use(express.json());
 
 // ใช้ route ที่จัดการโดย controller
