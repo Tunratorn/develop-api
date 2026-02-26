@@ -1,8 +1,8 @@
 // app.js
+require('dotenv').config(); // โหลดไฟล์ .env
 const express = require('express');
 const app = express();
 const userRoutes = require('./routes/api');
-require('dotenv').config(); // โหลดไฟล์ .env
 
 app.use(express.json());
 
