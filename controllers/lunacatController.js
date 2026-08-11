@@ -16,6 +16,7 @@ const DEFAULT_CALENDARS = [
     { key: 'personal', name: 'Personal', color: '#f06a4d', sort_order: 2 },
     { key: 'focus', name: 'Focus', color: '#3aaf82', sort_order: 3 }
 ];
+const DEFAULT_USER_ID = process.env.LUNACAT_USER_ID || '08e7c274-8d2a-43c2-8ade-71cee76add92';
 
 function ok(res, data, status = 200) {
     return res.status(status).json({ success: true, data });
@@ -89,7 +90,7 @@ function mapProduct(row) {
 }
 
 async function getCurrentUser(req) {
-    const requestedUserId = req.headers['x-lunacat-user-id'] || req.query.user_id;
+    const requestedUserId = req.headers['x-lunacat-user-id'] || req.query.user_id || DEFAULT_USER_ID;
 
     let query = supabase
         .from(TABLES.users)
