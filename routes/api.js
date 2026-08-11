@@ -4,6 +4,7 @@ const router = express.Router();
 const contentController = require('../controllers/contentController');
 const sendmailController = require('../controllers/sendmailController');
 const cleardebtController = require('../controllers/cleardebtController');
+const lunacatController = require('../controllers/lunacatController');
 
 router.get('/get-datauser', contentController.getDataUser);
 router.post('/send-email', sendmailController.sendmail);
@@ -26,5 +27,27 @@ router.post('/cleardebt-edit-locks/:resourceKey/acquire', cleardebtController.ac
 router.put('/cleardebt-edit-locks/:resourceKey/renew', cleardebtController.renewLock);
 router.post('/cleardebt-edit-locks/:resourceKey/release', cleardebtController.releaseLock);
 router.delete('/cleardebt-edit-locks/:resourceKey', cleardebtController.forceReleaseLock);
+
+router.get('/lunacat/me', lunacatController.getMe);
+router.get('/lunacat/calendars', lunacatController.getCalendars);
+
+router.get('/lunacat/events', lunacatController.getEvents);
+router.post('/lunacat/events', lunacatController.createEvent);
+router.put('/lunacat/events/:id', lunacatController.updateEvent);
+router.delete('/lunacat/events/:id', lunacatController.deleteEvent);
+
+router.get('/lunacat/holidays', lunacatController.getHolidays);
+router.put('/lunacat/holidays', lunacatController.replaceHolidays);
+
+router.get('/lunacat/money-entries', lunacatController.getMoneyEntries);
+router.post('/lunacat/money-entries', lunacatController.createMoneyEntry);
+router.put('/lunacat/money-entries/:id', lunacatController.updateMoneyEntry);
+router.delete('/lunacat/money-entries/:id', lunacatController.deleteMoneyEntry);
+
+router.get('/lunacat/products', lunacatController.getProducts);
+router.post('/lunacat/products', lunacatController.createProduct);
+router.put('/lunacat/products/:id', lunacatController.updateProduct);
+router.delete('/lunacat/products/:id', lunacatController.deleteProduct);
+router.get('/lunacat/products/:id/stock-movements', lunacatController.getProductStockMovements);
 
 module.exports = router;
